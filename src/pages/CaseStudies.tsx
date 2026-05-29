@@ -164,7 +164,7 @@ export default function CaseStudies() {
           </h1>
           
           <p className="text-slate-300 text-base md:text-[17px] max-w-3xl font-light leading-relaxed">
-            Each engagement is confidential. These case studies reflect the types of mandates EVERSTONE completes — the operational findings, financial translations, and decisions they supported.
+            Each engagement is confidential. These case studies reflect the types of mandates EVERSTONE completes the operational findings, financial translations, and decisions they supported.
           </p>
         </div>
       </section>

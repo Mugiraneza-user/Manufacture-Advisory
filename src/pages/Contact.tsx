@@ -42,7 +42,7 @@ export default function Contact() {
           </h1>
           
           <p className="text-slate-300 text-[14px] md:text-[15px] leading-relaxed max-w-2xl font-light mt-2">
-            Tell us what you are evaluating, protecting, or preparing for. Every engagement begins with a direct conversation — no pitch deck, no sales cycle.
+            Tell us what you are evaluating, protecting, or preparing for. Every engagement begins with a direct conversation  no pitch deck, no sales cycle.
           </p>
         </div>
       </section>
