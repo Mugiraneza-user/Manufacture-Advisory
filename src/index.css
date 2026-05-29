@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, ui-serif, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  --color-brand-dark: #021020;
+  --color-brand-navy: #051b33;
+  --color-brand-blue: #0e5db3;
+  --color-brand-blue-hover: #0b4a91;
+  --color-brand-accent: #1579e6;
+  --color-brand-muted: #64748b;
+  --color-brand-light-bg: #f8fafc;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-slate-800 bg-white antialiased selection:bg-brand-blue/20 selection:text-brand-blue;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-slate-900 tracking-tight;
+  }
+}
+
+/* Custom interactive micro-animations and designs */
+.diagonal-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(45deg, rgba(255, 255, 255, 0.015) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.015) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.015) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.015) 75%);
+}
+
+.transition-all-custom {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
