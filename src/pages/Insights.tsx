@@ -133,7 +133,7 @@ export default function Insights() {
       {/* ── CTA BANNER ── */}
       <section className="bg-[#0e5db3] text-white py-24 px-6">
         <div className="max-w-4xl mx-auto text-center flex flex-col items-center gap-6">
-          <h2 className="font-serif text-3xl md:text-[46px] font-bold leading-tight max-w-3xl">
+          <h2 className="font-serif text-3xl md:text-[46px] font-bold leading-tight max-w-3xl text-white">
             Ready to apply these ideas to your factory?
           </h2>
           <p className="text-blue-100 text-base md:text-lg font-light max-w-2xl leading-relaxed mb-6">
