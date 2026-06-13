@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { addMessage } from '../utils/storage'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -11,12 +12,23 @@ export default function Contact() {
   })
   const [submitted, setSubmitted] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Simulated form submission
-    setTimeout(() => {
+    try {
+      await addMessage(formData)
       setSubmitted(true)
-    }, 600)
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        role: '',
+        interest: '',
+        message: ''
+      })
+    } catch (err) {
+      console.error('Failed to submit message:', err)
+      alert('Failed to send your message. Please try again.')
+    }
   }
 
   return (

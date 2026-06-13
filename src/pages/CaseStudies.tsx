@@ -1,7 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { getCaseStudies } from '../utils/storage'
+import type { CaseStudy } from '../utils/storage'
 
 export default function CaseStudies() {
   const [activeTab, setActiveTab] = useState('All')
+  const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([])
+  const [loading, setLoading] = useState(true)
 
   const filterTabs = [
     { label: 'All Engagements', value: 'All' },
@@ -11,109 +15,39 @@ export default function CaseStudies() {
     { label: 'Value Assessment', value: 'VALUE ASSESSMENT' }
   ]
 
-  // All case studies data
-  const spotlightFeatured = {
-    category: 'OPERATIONAL DUE DILIGENCE',
-    title: 'Operational Due Diligence Reveals $2.4M in Hidden EBITDA Risk Before Acquisition Close',
-    metadata: '• Precision Metal Components • Midwest, USA • Private Equity Acquisition',
-    desc: 'A PE firm commissioned EVERSTONE to assess a precision machining business prior to close. The financial model showed stable EBITDA. The factory told a different story  one the P&L had no way to reflect. Three critical quality system gaps were identified. Capacity assumptions were overstated by 18%. Scrap and rework were absorbing margin management had attributed to normal variance.',
-    metrics: [
-      { value: '$2.4M', label: 'EBITDA risk in scrap, rework & downtime' },
-      { value: '3', label: 'Critical quality gaps flagged before close' },
-      { value: '18%', label: 'Capacity overstated in growth model' }
-    ],
-    link: '#/contact'
+  useEffect(() => {
+    getCaseStudies()
+      .then(data => setCaseStudies(data))
+      .catch(err => console.error('Failed to load case studies:', err))
+      .finally(() => setLoading(false))
+  }, [])
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+        <div className="text-slate-400 text-sm font-light animate-pulse">Loading case studies...</div>
+      </div>
+    )
   }
 
-  const spotlightSideCases = [
-    {
-      category: 'BANKABILITY AUDIT',
-      title: "Manufacturer Secures $3.8M Credit Line After Bankability Audit Closes Lender's Confidence Gap",
-      metadata: '• Injection Molding Manufacturer • Southeast, USA',
-      desc: 'A mid-size plastics manufacturer had strong revenue but struggled to secure an expansion credit line. EVERSTONE built an evidence package that directly addressed lender concerns.',
-      metrics: [
-        { value: '$3.8M', label: 'Credit line secured' },
-        { value: '6 wks', label: 'Audit to approval' },
-        { value: '9/10', label: 'Bankability score' }
-      ],
-      link: '#/contact'
-    },
-    {
-      category: 'LEADERSHIP COACHING',
-      title: 'Plant Leadership Team Connects Factory KPIs to EBITDA — Presenting to PE Board with Confidence',
-      metadata: '• Automotive Tier 2 Supplier • Ontario, Canada',
-      desc: 'Newly promoted plant and quality leaders lacked the financial vocabulary to translate day-to-day operations into P&L impact. EVERSTONE provided hands-on coaching to prepare them for board-level reporting.',
-      metrics: [
-        { value: '8 wks', label: 'Coaching duration' },
-        { value: '100%', label: 'Board alignment' },
-        { value: '$240k', label: 'EBITDA impact' }
-      ],
-      link: '#/contact'
-    }
-  ]
+  // Find spotlight featured (or fallback to the first one)
+  const spotlightFeatured = caseStudies.find(c => c.isFeatured) || caseStudies[0]
 
-  const gridCases = [
-    {
-      category: 'OPERATIONAL DUE DILIGENCE',
-      title: 'Quality System Gaps Identified in Lender-Commissioned Operational Review of Food Manufacturer',
-      desc: 'A regional bank engaged EVERSTONE ahead of a refinancing. Compliance exposure and warranty risk were surfaced that the financial audit had not captured  enabling restructured covenant terms before close.',
-      metrics: [
-        { value: '4', label: 'Compliance gaps' },
-        { value: '$1.1M', label: 'Warranty exposure' }
-      ],
-      link: '#/contact'
-    },
-    {
-      category: 'BANKABILITY AUDIT',
-      title: 'Fabrication Business Prepares for Acquisition by Closing Operational Credibility Gaps Before Going to Market',
-      desc: 'An owner preparing to sell engaged EVERSTONE to assess how a buyer or lender would read the factory and what needed to change to support a premium valuation.',
-      metrics: [
-        { value: '14', label: 'System improvements' },
-        { value: '+22%', label: 'Valuation improvement' }
-      ],
-      link: '#/contact'
-    },
-    {
-      category: 'VALUE ASSESSMENT',
-      title: 'OEE Analysis Quantifies $900K in Recoverable EBITDA at Contract Manufacturer',
-      desc: 'A strategic acquirer suspected throughput metrics were inconsistent with reported margins. EVERSTONE found a 67% gap between reported and actual OEE and $900K in recoverable annual margin.',
-      metrics: [
-        { value: '$900K', label: 'Recoverable EBITDA' },
-        { value: '67%', label: 'OEE gap found' }
-      ],
-      link: '#/contact'
-    },
-    {
-      category: 'LEADERSHIP COACHING',
-      title: 'Quality Manager Develops Risk-Based Leadership Ahead of ISO 9001 Surveillance Audit',
-      desc: 'A quality manager at a medical device contract manufacturer shifted from reactive inspection to proactive, risk-based quality leadership — with zero major nonconformities at audit.',
-      metrics: [
-        { value: '0', label: 'Major nonconformities' },
-        { value: '8 wks', label: 'Coaching duration' }
-      ],
-      link: '#/contact'
-    },
-    {
-      category: 'BANKABILITY AUDIT',
-      title: 'Electronics Assembler Builds Evidence Package That Supports Customer Audit and New Program Award',
-      desc: 'A Tier 1 customer required an operational readiness review before awarding a new program. EVERSTONE built the factory evidence package and prepared the leadership team.',
-      metrics: [
-        { value: '$2.2M', label: 'New annual revenue' },
-        { value: '1', label: 'Program awarded' }
-      ],
-      link: '#/contact'
-    },
-    {
-      category: 'OPERATIONAL DUE DILIGENCE',
-      title: 'Post-Acquisition Operational Risk Review Identifies Leadership Gaps Before 100-Day Plan Launch',
-      desc: 'A PE-backed industrial business commissioned EVERSTONE 30 days post-close to validate operational assumptions and identify gaps before the value-creation plan launched.',
-      metrics: [
-        { value: '7', label: 'Priority risks found' },
-        { value: '100d', label: 'Plan restructured' }
-      ],
-      link: '#/contact'
-    }
-  ]
+  // Find spotlight side cases (up to 2)
+  const spotlightSideCases = caseStudies.filter(c => c.isSide).slice(0, 2)
+  if (spotlightSideCases.length < 2 && caseStudies.length > 1) {
+    const remaining = caseStudies.filter(c => c.id !== spotlightFeatured?.id)
+    const needed = 2 - spotlightSideCases.length
+    spotlightSideCases.push(...remaining.slice(0, needed))
+  }
+
+  // All other cases go to the grid
+  const spotlightIds = new Set([
+    spotlightFeatured?.id,
+    ...spotlightSideCases.map(s => s?.id)
+  ].filter(Boolean))
+  
+  const gridCases = caseStudies.filter(c => !spotlightIds.has(c.id))
 
   // Map category to styles
   const getCategoryStyles = (category: string) => {
@@ -140,6 +74,7 @@ export default function CaseStudies() {
   const filteredCases = isAll 
     ? gridCases 
     : allCasesCombined.filter(c => c.category === activeTab)
+
 
   return (
     <div className="w-full flex flex-col font-sans">
@@ -196,8 +131,8 @@ export default function CaseStudies() {
       {/* ── ENGAGEMENTS LISTING ── */}
       <section className="bg-slate-50/50 py-16 px-6">
         <div className="max-w-7xl mx-auto">
-          {/* Spotlight section: Only render when 'All' tab is active */}
-          {isAll && (
+          {/* Spotlight section: Only render when 'All' tab is active and we have a featured case */}
+          {isAll && spotlightFeatured && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
               {/* Featured Left (Dark Card) */}
               <div className="lg:col-span-7 bg-[#020e1a] text-white p-10 md:p-12 flex flex-col justify-between hover:translate-y-[-2px] transition-all duration-300 shadow-md">

@@ -11,6 +11,7 @@ import CaseStudies from './pages/CaseStudies'
 import Insights from './pages/Insights'
 import Contact from './pages/Contact'
 import About from './pages/About'
+import Admin from './pages/Admin'
 
 function App() {
   // Custom hash routing state
@@ -61,6 +62,8 @@ function App() {
         return <Contact />
       case 'about':
         return <About />
+      case 'admin':
+        return <Admin />
       default:
         return <Home onNavigate={navigate} />
     }

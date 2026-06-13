@@ -1,41 +1,28 @@
-
+import { useState, useEffect } from 'react'
+import { getInsights } from '../utils/storage'
+import type { Insight } from '../utils/storage'
 
 export default function Insights() {
-  const topCards = [
-    {
-      category: 'OPERATIONAL DUE DILIGENCE',
-      title: 'Why EBITDA Alone Cannot Tell You If a Factory Is Worth Buying',
-      desc: "A factory's income statement reflects past results. It says nothing about whether those results can be sustained, scaled, or repeated after ownership changes. The answer lives inside the factory's systems not its financial statements.",
-      link: '#/contact'
-    },
-    {
-      category: 'BANKABILITY',
-      title: 'Manufacturing Bankability: The Missing Link Between Operations and Capital',
-      desc: 'Lenders and Investors make capital allocation decisions based on financial data. But the operational systems that produce that data are rarely examined before capital is committed. That gap is bankability.',
-      link: '#/contact'
-    }
-  ]
+  const [insights, setInsights] = useState<Insight[]>([])
+  const [loading, setLoading] = useState(true)
 
-  const bottomCards = [
-    {
-      category: 'QUALITY & FINANCE',
-      title: 'Scrap Is Not a Quality Problem. It Is Margin Leakage.',
-      desc: 'Every unit scrapped is labor, material, and capacity that produced nothing shippable. Here is how to quantify it and why it belongs in the EBITDA conversation.',
-      link: '#/contact'
-    },
-    {
-      category: 'LENDERS',
-      title: 'Before You Finance a Factory, Study the System That Produces the Numbers',
-      desc: 'The financial statements a lender reviews are outputs of a system  and that system may be unreliable, undisciplined, or about to break down under the pressure of growth.',
-      link: '#/contact'
-    },
-    {
-      category: 'OPERATIONS',
-      title: 'Poor OEE Is Trapped Revenue. Here Is How to Quantify It.',
-      desc: "OEE is the most underused financial metric in manufacturing. If you're not converting OEE losses to dollars, you're leaving a powerful conversation tool on the floor.",
-      link: '#/contact'
-    }
-  ]
+  useEffect(() => {
+    getInsights()
+      .then(data => setInsights(data))
+      .catch(err => console.error('Failed to load insights:', err))
+      .finally(() => setLoading(false))
+  }, [])
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+        <div className="text-slate-400 text-sm font-light animate-pulse">Loading insights...</div>
+      </div>
+    )
+  }
+
+  const topCards = insights.filter(i => i.isTop)
+  const bottomCards = insights.filter(i => !i.isTop)
 
   return (
     <div className="w-full flex flex-col font-sans">

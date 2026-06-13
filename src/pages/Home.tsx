@@ -17,11 +17,11 @@ export default function Home({ onNavigate }: HomeProps) {
           </span>
           
           <h1 className="text-white text-3xl md:text-5xl lg:text-[54px] font-serif font-bold leading-[1.12] max-w-3xl mt-2 ">
-            Turning factory  <br />performance  <br /> into financial confidence.
+            The factory is  <br />where financial  <br /> risk <br/> hides.
           </h1>
           
           <p className="text-slate-300 font-sans text-base md:text-lg lg:text-[17px] leading-relaxed max-w-2xl mt-2 font-normal">
-            EVERSTONE helps manufacturers, investors, and lenders determine whether a factory is operationally sound, scalable, and bankable.
+            EVERSTONE SYSTEMS helps manufacturers, investors, and lenders determine whether a factory is operationally sound, scalable, and bankable before capital is committed and after it is.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mt-6 w-full sm:w-auto">
@@ -598,13 +598,13 @@ export default function Home({ onNavigate }: HomeProps) {
               onClick={() => onNavigate('contact')}
               className="bg-white hover:bg-slate-100 text-brand-blue text-[13px] font-semibold px-8 py-4 rounded-none transition-all duration-200 cursor-pointer tracking-wider shadow-md active:scale-[0.98] "
             >
-              Request ODD
+              Request a Confidential Assessment
             </button>
             <button
               onClick={() => onNavigate('services')}
               className="border border-white/60 hover:bg-white/10 text-white text-[13px] font-semibold px-8 py-4 rounded-none transition-all duration-200 cursor-pointer tracking-wider active:scale-[0.98] "
             >
-              Explore Services
+              Read Our Insights
             </button>
           </div>
         </div>

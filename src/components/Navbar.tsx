@@ -49,10 +49,10 @@ export default function Navbar({ currentRoute, onNavigate }: NavbarProps) {
             className="flex flex-col items-start cursor-pointer group"
           >
             <span className="font-serif text-xl md:text-2xl font-bold text-brand-navy leading-none tracking-wide group-hover:text-brand-blue transition-colors">
-              EVERSTONE
+              EVERSTONE SYSTEMS
             </span>
             <span className="text-[8px] md:text-[9px] font-sans font-bold tracking-[0.22em] text-slate-500 leading-none mt-1.5 uppercase">
-              Manufacturing Advisory
+              MANUFACTURING SOLUTIONS
             </span>
           </div>
 

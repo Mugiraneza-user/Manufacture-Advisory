@@ -96,7 +96,17 @@ export default function Footer({ onNavigate }: FooterProps) {
       {/* Bottom Legal bar */}
       <div className="bg-[#010912] py-6 border-t border-[#041628]">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© 2026 EVERSTONE Manufacturing Advisory. All rights reserved.</p>
+          <p>
+            © 2026 EVERSTONE Manufacturing Advisory. All rights reserved.
+            <span className="mx-2">·</span>
+            <a 
+              href="#/admin" 
+              onClick={(e) => handleNavClick(e, 'admin')} 
+              className="hover:text-white transition-colors underline decoration-slate-600 hover:decoration-white font-medium"
+            >
+              Admin Portal
+            </a>
+          </p>
           <div className="flex gap-2 text-[11px] text-slate-600 font-light flex-wrap md:justify-end text-center">
             <span>Manufacturing Operational Due Diligence</span>
             <span>·</span>
