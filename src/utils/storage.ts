@@ -1,7 +1,7 @@
 // import type { CaseStudy, Insight, Message, Metric } from './storage';
 import { getAuthToken } from './auth';
 // const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:8000/api';
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+const API_BASE = import.meta.env.VITE_API_URL || 'http://manufacture-advisory-production.up.railway.app';
 
 /** Helper to handle JSON responses */
 // async function authFetch(endpoint: string, options: RequestInit = {}) {

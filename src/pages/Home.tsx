@@ -1,5 +1,9 @@
 import { ArrowRight,  } from 'lucide-react'
 //Activity, ShieldAlert, Award, FileSpreadsheet
+import image from '../assets/1.jpg'
+import backgroundImage from '../assets/5.jpg'
+import imag1 from '../assets/3.jpg'
+import imag2 from '../assets/6.jpg'
 interface HomeProps {
   onNavigate: (route: string) => void
 }
@@ -8,16 +12,16 @@ export default function Home({ onNavigate }: HomeProps) {
   return (
     <div className="w-full flex flex-col">
       {/* 1. HERO SECTION */}
-      <section className="relative bg-[#020e1a] text-white overflow-hidden diagonal-grid py-20 lg:py-28 px-6 ">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#020e1a]/50 via-[#031527]/70 to-[#020e1a]/95 z-0" />
-        
+      <section className="relative text-white overflow-hidden diagonal-grid py-20 lg:py-28 px-6 ">
+        <div className="absolute inset-0  from-[#020e1a]/50 via-[#031527]/70 to-[#020e1a]/95 z-0" />
+        <img src={image} alt="Factory" className="absolute inset-0 w-full h-full object-cover z-0 brightness-10 opacity-90" />
         <div className="relative max-w-7xl mx-auto z-10 flex flex-col items-start gap-6">
-          <span className="text-[12px] md:text-[12px] font-mono font-bold tracking-[0.25em] text-brand-accent uppercase leading-none pt-5">
+          <span className="flex items-center gap-3 text-[9px] font-mono font-bold tracking-[0.25em] text-[#FFD700] uppercase pt-5">
+           <span className="w-5 h-[1px] bg-[#FFD700]" />
             Manufacturing Value Assurance
           </span>
-          
           <h1 className="text-white text-3xl md:text-5xl lg:text-[54px] font-serif font-bold leading-[1.12] max-w-3xl mt-2 ">
-            The factory is  <br />where financial  <br /> risk <br/> hides.
+            The factory is  <br />where financial  <br /> risk  <br /> <span className="text-brand-blue-hover">hides.</span>
           </h1>
           
           <p className="text-slate-300 font-sans text-base md:text-lg lg:text-[17px] leading-relaxed max-w-2xl mt-2 font-normal">
@@ -43,52 +47,122 @@ export default function Home({ onNavigate }: HomeProps) {
       
       {/* Lighter blue solid transition bar */}
       <div className="w-full h-4 bg-brand-blue" />
+<section className="bg-[#F3F3F3]">
 
-      {/* 2. VALUE PROP COLUMNS (Blue Background Banner) */}
-      <section className="bg-brand-blue-hover text-white py-14 md:py-18 px-6 border-b border-brand-blue-hover">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8 divide-y lg:divide-y-0 lg:divide-x divide-white/20">
-          
-          {/* Column 1 */}
-          <div className="flex flex-col items-start gap-3 lg:pr-8 pt-6 lg:pt-0">
-            <span className="text-[11px] font-bold tracking-[0.2em] text-sky-200 uppercase">
-              Operational Risk
-            </span>
-            <h3 className="font-serif text-xl md:text-[22px] font-semibold text-white leading-snug">
-              What the P & L doesn't show you
-            </h3>
-            <p className="text-sky-100/90 text-[14px] leading-relaxed mt-1 font-light">
-              Factory systems reveal whether financial results are reliable, repeatable, and defensible information that never reaches the income statement.
-            </p>
-          </div>
+  {/* Heading */}
+  <div className="py-11 px-6">
+    <h2 className="font-serif text-[#082847] text-center font-bold leading-[1.05]
+                   text-5xl md:text-6xl lg:text-[42px]">
+      Three kinds of people
+      <br />
+      who need to read the factory.
+    </h2>
+  </div>
 
-          {/* Column 2 */}
-          <div className="flex flex-col items-start gap-3 lg:px-8 pt-6 lg:pt-0">
-            <span className="text-[11px] font-bold tracking-[0.2em] text-sky-200 uppercase">
-              EBITDA Opportunity
-            </span>
-            <h3 className="font-serif text-xl md:text-[22px] font-semibold text-white leading-snug">
-              Margin hiding in plain sight
-            </h3>
-            <p className="text-sky-100/90 text-[14px] leading-relaxed mt-1 font-light">
-              Poor OEE, scrap, rework, and downtime are quantifiable EBITDA leakage that EVERSTONE maps to specific factory systems.
-            </p>
-          </div>
+  {/* Three Panels */}
+  <div className="grid grid-cols-1 lg:grid-cols-3">
 
-          {/* Column 3 */}
-          <div className="flex flex-col items-start gap-3 lg:pl-8 pt-6 lg:pt-0">
-            <span className="text-[11px] font-bold tracking-[0.2em] text-sky-200 uppercase">
-              Bankability Evidence
-            </span>
-            <h3 className="font-serif text-xl md:text-[22px] font-semibold text-white leading-snug">
-              The confidence capital requires
-            </h3>
-            <p className="text-sky-100/90 text-[14px] leading-relaxed mt-1 font-light">
-              Lenders and investors read process discipline as a proxy for management maturity. EVERSTONE SYSTEMS builds the evidence package that supports their decision.
-            </p>
-          </div>
+    {/* Panel 1 */}
+    <div className="relative h-[700px]">
+      <img src={image}alt=""className="absolute inset-0 w-full h-full object-cover"/>
 
+      <div className="absolute inset-0 "></div>
+
+      <div className="absolute bottom-0 p-10 lg:p-12 text-white z-10 bg-[#082847]/80">
+
+        <div className="flex items-center gap-3 mb-8">
+          <div className="w-8 h-[2px] bg-[#D7A13B]"></div>
+          <span className="text-[#D7A13B] text-xs tracking-[0.25em] font-semibold">
+            PRIVATE EQUITY & BUYERS
+          </span>
         </div>
-      </section>
+
+        <h3 className="font-serif text-4xl lg:text-[27px] font-bold leading-[1.05] mb-8 text-white">
+          You have the model.
+          <br />
+          You don't have the factory.
+        </h3>
+
+        <p className="text-white/75 leading-8 text-[12px]">
+          EBITDA tells you what a business has earned. EVERSTONE SYSTEMS tells
+          you whether it can earn it again and whether the systems,
+          capacity, and leadership exist to support the investment thesis.
+        </p>
+
+      </div>
+    </div>
+
+    {/* Panel 2 */}
+    <div className="relative h-[700px]">
+      <img
+        src={imag1}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+
+      <div className="absolute inset-0 "></div>
+
+      <div className="absolute bottom-0 p-10 lg:p-12 text-white z-10 bg-[#082847]/75">
+
+        <div className="flex items-center gap-3 mb-8">
+          <div className="w-8 h-[2px] bg-[#D7A13B]"></div>
+          <span className="text-[#D7A13B] text-xs tracking-[0.25em] font-semibold">
+            MANUFACTURERS & OWNERS
+          </span>
+        </div>
+
+        <h3 className="font-serif text-4xl lg:text-[27px] font-bold leading-[1.05] mb-8 text-white">
+          You know it's underperforming.
+          <br />
+          You don't know exactly where.
+        </h3>
+
+        <p className="text-white/75 leading-8 text-[12px]">
+          Value is trapped inside your factory in OEE losses, scrap,
+          rework, and capacity constraints. EVERSTONE SYSTEMS finds it,
+          quantifies it, and builds the roadmap to recover it.
+        </p>
+
+      </div>
+    </div>
+
+    {/* Panel 3 */}
+    <div className="relative h-[700px]">
+      <img
+        src={backgroundImage}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+
+      <div className="absolute inset-0 "></div>
+
+      <div className="absolute bottom-0 p-10 lg:p-12 text-white z-10 bg-[#082847]/80">
+
+        <div className="flex items-center gap-3 mb-8">
+          <div className="w-8 h-[2px] bg-[#D7A13B]"></div>
+          <span className="text-[#D7A13B] text-xs tracking-[0.25em] font-semibold">
+            BANKS & LENDERS
+          </span>
+        </div>
+
+        <h3 className="font-serif text-4xl lg:text-[27px] font-bold leading-[1.05] mb-8 text-white">
+          You see the financials.
+          <br />
+          You haven't seen the factory.
+        </h3>
+
+        <p className="text-white/75 leading-8 text-[12px]">
+          A factory's ability to service debt depends on operational
+          discipline not just reported EBITDA. EVERSTONE SYSTEMS provides
+          the independent operational intelligence your credit decision
+          requires.
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+</section>
 
       {/* 3. THE CORE PROBLEM PART 1 */}
       <section className="bg-white py-16 md:py-24 px-6 border-b border-slate-100">
@@ -582,12 +656,15 @@ export default function Home({ onNavigate }: HomeProps) {
       </section>
 
       {/* 9. CTA SECTION */}
-      <section className="bg-brand-blue py-20 md:py-28 px-6">
-        <div className="max-w-3xl mx-auto flex flex-col items-center text-center gap-6">
-          <span className="text-[11px] font-bold tracking-[0.25em] text-sky-200 uppercase">
+      <section className=" relative py-20 md:py-28 px-6 overflow-hidden">
+        <img src={backgroundImage} alt="Factory" className="absolute inset-0 w-full h-full object-cover z-0 brightness-70 opacity-90" />
+       <div className="absolute inset-0 bg-blue-900/45 z-10" />
+        <div className="relative z-20 max-w-3xl mx-auto flex flex-col items-center text-center gap-6">
+          
+          <span className="text-[11px] font-bold tracking-[0.25em] text-white uppercase">
             Get Started
           </span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-[46px] font-bold text-white leading-tight">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-[46px] font-bold text-gray-100">
             Is your factory truly <br /> bankable?
           </h2>
           <p className="text-sky-100/90 text-[15px] md:text-[16px] leading-relaxed font-light max-w-xl">
@@ -596,7 +673,7 @@ export default function Home({ onNavigate }: HomeProps) {
           <div className="flex flex-col sm:flex-row gap-4 mt-4">
             <button
               onClick={() => onNavigate('contact')}
-              className="bg-white hover:bg-slate-100 text-brand-blue text-[13px] font-semibold px-8 py-4 rounded-none transition-all duration-200 cursor-pointer tracking-wider shadow-md active:scale-[0.98] "
+              className=" hover:bg-slate-100 text-black text-[13px] font-semibold px-8 py-4 rounded-none transition-all duration-200 cursor-pointer tracking-wider shadow-md active:scale-[0.98] bg-[#c5b142]"
             >
               Request a Confidential Assessment
             </button>
@@ -608,6 +685,7 @@ export default function Home({ onNavigate }: HomeProps) {
             </button>
           </div>
         </div>
+    
       </section>
 
     

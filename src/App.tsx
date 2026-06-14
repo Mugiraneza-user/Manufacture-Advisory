@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
-// Import Pages
+// Pages
 import Home from './pages/Home'
 import Service from './pages/Service'
 import Method from './pages/Method'
@@ -14,36 +14,42 @@ import About from './pages/About'
 import Admin from './pages/Admin'
 
 function App() {
-  // Custom hash routing state
-  const [route, setRoute] = useState(() => {
-    const hash = window.location.hash
-    return hash ? hash.replace('#/', '') : 'home'
-  })
+  // Get current route from URL path
+  const getRouteFromPath = () => {
+    const path = window.location.pathname
+    return path === '/' ? 'home' : path.replace('/', '')
+  }
 
+  const [route, setRoute] = useState(getRouteFromPath)
+
+  // Handle browser navigation (back/forward)
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash
-      const targetRoute = hash ? hash.replace('#/', '') : 'home'
-      setRoute(targetRoute)
-      // Smooth scroll to top on page transition
+    const handlePopState = () => {
+      setRoute(getRouteFromPath())
       window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })
     }
 
-    window.addEventListener('hashchange', handleHashChange)
-    
-    // Set initial hash if empty
-    if (!window.location.hash) {
-      window.location.hash = '#/home'
-    }
+    window.addEventListener('popstate', handlePopState)
 
-    return () => window.removeEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('popstate', handlePopState)
   }, [])
 
+  // Set default route on first load
+  useEffect(() => {
+    if (window.location.pathname === '/') {
+      window.history.replaceState({}, '', '/home')
+      setRoute('home')
+    }
+  }, [])
+
+  // Navigation function (NO # anymore)
   const navigate = (to: string) => {
-    window.location.hash = `#/${to}`
+    window.history.pushState({}, '', `/${to}`)
+    setRoute(to)
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })
   }
 
-  // Render active route
+  // Render pages
   const renderContent = () => {
     switch (route) {
       case 'home':
@@ -71,15 +77,15 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 text-slate-800">
-      {/* Navigation Header */}
+      {/* Navbar */}
       <Navbar currentRoute={route} onNavigate={navigate} />
 
-      {/* Main Page Area */}
+      {/* Main Content */}
       <main className="flex-grow w-full">
         {renderContent()}
       </main>
 
-      {/* Footer Area */}
+      {/* Footer */}
       <Footer onNavigate={navigate} />
     </div>
   )
