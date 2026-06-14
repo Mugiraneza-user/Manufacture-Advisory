@@ -1,5 +1,5 @@
 
-const API_BASE = import.meta.env.VITE_API_URL || 'https://manufacture-advisory-production.up.railway.app';
+const API_BASE = import.meta.env.VITE_API_URL || 'https://manufacture-advisory-production.up.railway.app/api';
 
 // Store token in localStorage
 const TOKEN_KEY = 'auth_token';
