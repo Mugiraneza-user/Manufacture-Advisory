@@ -26,7 +26,15 @@ SECRET_KEY = 'django-insecure-vx6kvfod(si--j6ru$1v4f+nj9go@wl(i(w_t&_)ag8h(e#e_6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    
+    'backendmanufacture-production.up.railway.app',
+    'manufacture-advisory-production.up.railway.app',  # If frontend needs to access backend
+    'localhost',
+    '127.0.0.1',
+    '.railway.app',  # This allows all railway.app subdomains
+
+]
 
 
 # Application definition
@@ -128,10 +136,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
-CORS_ALLOW_ALL_ORIGINS = True
-# CORS_ALLOWED_ORIGINS = [
-#     "https://manufacture-advisory-production.up.railway.app",
-# ]
+CORS_ALLOWED_ORIGINS = [
+    "https://manufacture-advisory-production.up.railway.app",
+    "http://localhost:3000",  # For local development
+    "http://127.0.0.1:3000",
+]
+
+CORS_ALLOW_CREDENTIALS = True
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
