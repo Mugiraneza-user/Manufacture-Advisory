@@ -3,7 +3,7 @@ import { ArrowRight,  } from 'lucide-react'
 import image from '../assets/1.jpg'
 import backgroundImage from '../assets/5.jpg'
 import imag1 from '../assets/3.jpg'
-import imag2 from '../assets/6.jpg'
+
 interface HomeProps {
   onNavigate: (route: string) => void
 }
