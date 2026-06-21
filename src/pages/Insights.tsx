@@ -4,12 +4,13 @@ import type { Insight } from '../utils/storage'
 
 export default function Insights() {
   const [insights, setInsights] = useState<Insight[]>([])
+  
 
   useEffect(() => {
     getInsights()
       .then(data => setInsights(data))
       .catch(err => console.error('Failed to load insights:', err))
-
+     
   }, [])
 
   const topCards = insights.filter(i => i.isTop)
