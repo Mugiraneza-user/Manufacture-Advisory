@@ -4,8 +4,44 @@ import image from '../assets/1.jpg'
 import backgroundImage from '../assets/5.jpg'
 import imag1 from '../assets/3.jpg'
 
+import mathorboard from '../assets/6.jpg'
+
 interface HomeProps {
   onNavigate: (route: string) => void
+}
+type CaseCardProps = { badge: string; badgeColor: string; location: string; title: string; description: string; stats: {  value: string; label: string;}[];
+};
+
+function CaseCard({ badge,badgeColor,location,title,description,stats,}: CaseCardProps) {
+  return (
+    <div className="border border-white/10 p-12 backdrop-blur-sm bg-white/[0.02] ">
+      <span
+        className={`inline-flex px-4 py-2 text-[11px] tracking-[0.25em] uppercase font-bold ${badgeColor}`} > {badge} </span>
+       <p className="mt-8 text-[10px] uppercase tracking-[0.18em] text-white/40"> {location} </p>
+
+      <h4 className="mt-4 font-serif text-white text-xl leading-tight font-bold">  {title} </h4>
+       <p className="mt-6 text-white/60 text-sm leading-relaxed"> {description} </p>
+
+      <div className="mt-10 border-t border-white/10 pt-8 flex flex-wrap gap-10">
+        {stats.map((stat) => (
+          <div key={stat.label}>
+            <div className="font-serif text-white text-xl font-bold">
+              {stat.value}
+            </div>
+            <div className="text-white/50 text-sm mt-2">
+              {stat.label}
+            </div>
+          </div>
+        ))}
+      </div>
+     <a href="case-studies">
+      <button className="mt-10 text-sky-400 font-semibold hover:translate-x-1 transition-transform">
+        Read case study →
+      </button>
+
+      </a>
+    </div>
+  );
 }
 
 export default function Home({ onNavigate }: HomeProps) {
@@ -378,282 +414,87 @@ export default function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
 
-      {/* 6. KEY PERFORMANCE IMPACT CARDS */}
-      {/* <section className="bg-brand-light-bg py-16 md:py-20 px-6 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"> */}
-            
-            {/* Card 1 */}
-            {/* <div className="bg-white border border-slate-200 p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-              <div>
-                <span className="text-[10px] font-sans font-bold tracking-[0.2em] text-brand-accent uppercase">
-                  Poor OEE
-                </span>
-                <h4 className="font-serif text-lg md:text-xl font-bold text-slate-900 mt-2">
-                  Trapped Revenue
-                </h4>
-                <p className="text-brand-muted text-[13.5px] leading-relaxed mt-3 font-light">
-                  Every lost point of availability, speed, or quality is capital that isn't working.
-                </p>
-              </div>
-              <Activity className="text-brand-blue/30 self-end mt-4" size={24} />
-            </div> */}
+    
+          {/* 7. CASE STUDIES */}
+      <section className="relative overflow-hidden bg-[#062942] py-24">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-100"
+        style={{
+          backgroundImage: `url(${mathorboard})`, // <-- leave image path here
+        }}
+      />
 
-            {/* Card 2 */}
-            {/* <div className="bg-white border border-slate-200 p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-              <div>
-                <span className="text-[10px] font-sans font-bold tracking-[0.2em] text-brand-accent uppercase">
-                  Scrap & Rework
-                </span>
-                <h4 className="font-serif text-lg md:text-xl font-bold text-slate-900 mt-2">
-                  Margin Leakage
-                </h4>
-                <p className="text-brand-muted text-[13.5px] leading-relaxed mt-3 font-light">
-                  It absorbs labor, material, and capacity without creating value.
-                </p>
-              </div>
-              <ShieldAlert className="text-brand-blue/30 self-end mt-4" size={24} />
-            </div> */}
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#021b2d]/90 via-[#021b2d]/85 to-[#021b2d]" />
 
-            {/* Card 3 */}
-            {/* <div className="bg-white border border-slate-200 p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-              <div>
-                <span className="text-[10px] font-sans font-bold tracking-[0.2em] text-brand-accent uppercase">
-                  Weak Process Control
-                </span>
-                <h4 className="font-serif text-lg md:text-xl font-bold text-slate-900 mt-2">
-                  Reduced Bankability
-                </h4>
-                <p className="text-brand-muted text-[13.5px] leading-relaxed mt-3 font-light">
-                  Lenders discount businesses with volatile processes because risk cannot be priced.
-                </p>
-              </div>
-              <Award className="text-brand-blue/30 self-end mt-4" size={24} />
-            </div> */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        <h2 className="font-serif text-white text-3xl md:text-4xl font-bold leading-[1.12] max-w-3xl mb-20">
+          Four mandates.
+          <br />
+          Four factories that told
+          <br />
+          a different story.
+        </h2>
 
-            {/* Card 4 */}
-            {/* <div className="bg-white border border-slate-200 p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-              <div>
-                <span className="text-[10px] font-sans font-bold tracking-[0.2em] text-brand-accent uppercase">
-                  Unreliable KPI Data
-                </span>
-                <h4 className="font-serif text-lg md:text-xl font-bold text-slate-900 mt-2">
-                  Investment Risk
-                </h4>
-                <p className="text-brand-muted text-[13.5px] leading-relaxed mt-3 font-light">
-                  If the operational numbers can't be trusted, the financial model is a guess.
-                </p>
-              </div>
-              <FileSpreadsheet className="text-brand-blue/30 self-end mt-4" size={24} />
-            </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 border border-white/10">
+          {/* Card 1 */}
+          <CaseCard
+            badge="Operational Due Diligence"
+            badgeColor="bg-blue-500/20 text-blue-400"
+            location="PRECISION METAL · MIDWEST, USA · PE ACQUISITION"
+            title="$2.4M in EBITDA Risk Found Before Acquisition Close"
+            description="Three critical quality gaps, 18% overstated capacity, and margin absorbed by scrap none of it visible in the financial model."
+            stats={[
+              { value: "$2.4M", label: "EBITDA risk" },
+              { value: "18%", label: "Capacity overstated" },
+              { value: "3", label: "Quality gaps" },
+            ]}
+          />
 
-          </div>
+          {/* Card 2 */}
+          <CaseCard
+            badge="Bankability Audit"
+            badgeColor="bg-emerald-500/20 text-emerald-400"
+            location="INJECTION MOLDING · SOUTHEAST, USA · GROWTH FINANCING"
+            title="$3.8M Credit Line Secured After Bankability Audit"
+            description="Strong revenue, but lender confidence was missing. EVERSTONE built the evidence package that directly addressed what the lender needed to see."
+            stats={[
+              { value: "$3.8M", label: "Credit secured" },
+              { value: "6 wks", label: "Audit to approval" },
+              { value: "9/10", label: "Bankability score" },
+            ]}
+          />
+
+          {/* Card 3 */}
+          <CaseCard
+            badge="Value Assessment"
+            badgeColor="bg-purple-500/20 text-purple-400"
+            location="CONTRACT MANUFACTURER · STRATEGIC ACQUISITION"
+            title="$900K in Recoverable EBITDA Found at Contract Manufacturer"
+            description="A 67% gap between reported and actual OEE  accepted at face value by the model."
+            stats={[
+              { value: "$900K", label: "Recoverable margin" },
+              { value: "67%", label: "OEE gap found" },
+            ]}
+          />
+
+          {/* Card 4 */}
+          <CaseCard
+            badge="Leadership Coaching"
+            badgeColor="bg-amber-500/20 text-amber-400"
+            location="AUTOMOTIVE TIER 2 · ONTARIO · PE-BACKED"
+            title="Plant Leadership Connects KPIs to EBITDA  Presenting to PE Board"
+            description="A 12-week program rebuilt decision-making and delivered +6pt OEE in 90 days."
+            stats={[
+              { value: "12 wks", label: "Program" },
+              { value: "+6pt", label: "OEE in 90 days" },
+              { value: "4", label: "Leaders coached" },
+            ]}
+          />
         </div>
-      </section> */}
-
-      {/* 7. CASE STUDIES */}
-      <section className="bg-brand-light-bg py-16 md:py-24 px-6 border-b border-slate-100">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
-          {/* Left Column (Span 2) */}
-          <div className="lg:col-span-2 flex flex-col items-start gap-4">
-            <div className="flex flex-col items-start">
-              <span className="text-[11px] font-sans font-bold tracking-[0.25em] text-brand-blue uppercase">
-                Case Studies
-              </span>
-              <div className="w-12 h-[3px] bg-brand-blue mt-2" />
-            </div>
-
-            <h2 className="font-serif text-3xl md:text-[40px] font-bold text-brand-navy leading-[1.15] mt-4 max-w-sm">
-              Factory intelligence applied in practice.
-            </h2>
-
-            <p className="text-brand-muted text-[14px] leading-relaxed mt-3 font-light max-w-md">
-              Each engagement is confidential. These case studies reflect the types of mandates EVERSTONE completes the operational findings, financial translations, and decisions they supported.
-            </p>
-
-            <button
-              onClick={() => onNavigate('case-studies')}
-              className="group text-brand-blue hover:text-brand-blue-hover text-[14px] font-bold mt-4 flex items-center gap-2 transition-colors cursor-pointer"
-            >
-              View all case studies
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-
-          {/* Right Column (Span 3) */}
-          <div className="lg:col-span-3 flex flex-col gap-0 divide-y divide-slate-200">
-
-            {/* Case Study 01 */}
-            <div className="flex gap-6 items-start py-8 first:pt-0">
-              <span className="font-serif text-4xl font-semibold text-brand-blue leading-none">
-                01
-              </span>
-              <div className="flex flex-col gap-2 flex-1">
-                <span className="inline-block text-[10px] font-bold tracking-[0.18em] text-brand-blue uppercase border border-brand-blue/30 px-2 py-1 w-fit">
-                  Operational Due Diligence
-                </span>
-                <h3 className="font-sans font-bold text-[16px] md:text-[17px] text-brand-navy leading-snug mt-1">
-                  $2.4M EBITDA Risk Identified Before Acquisition Close
-                </h3>
-                <p className="text-brand-muted text-[14px] leading-relaxed font-light">
-                  Three critical quality gaps, 18% overstated capacity, and margin absorbed by scrap — all invisible to the financial model.
-                </p>
-                <div className="flex gap-8 mt-3">
-                  <div className="flex flex-col gap-0.5">
-                    <span className="font-serif text-2xl font-bold text-brand-blue">$2.4M</span>
-                    <span className="text-[11px] text-brand-muted uppercase tracking-wider font-light">EBITDA risk</span>
-                  </div>
-                  <div className="flex flex-col gap-0.5">
-                    <span className="font-serif text-2xl font-bold text-brand-blue">18%</span>
-                    <span className="text-[11px] text-brand-muted uppercase tracking-wider font-light">Capacity overstated</span>
-                  </div>
-                  <div className="flex flex-col gap-0.5">
-                    <span className="font-serif text-2xl font-bold text-brand-blue">3</span>
-                    <span className="text-[11px] text-brand-muted uppercase tracking-wider font-light">Quality gaps flagged</span>
-                  </div>
-                </div>
-                <span className="text-[11px] text-brand-muted uppercase tracking-wider font-light mt-2">
-                  Precision Metal Components · Midwest, USA · PE Acquisition
-                </span>
-              </div>
-            </div>
-
-            {/* Case Study 02 */}
-            <div className="flex gap-6 items-start py-8">
-              <span className="font-serif text-4xl font-semibold text-brand-blue leading-none">
-                02
-              </span>
-              <div className="flex flex-col gap-2 flex-1">
-                <span className="inline-block text-[10px] font-bold tracking-[0.18em] text-brand-blue uppercase border border-brand-blue/30 px-2 py-1 w-fit">
-                  Bankability Audit
-                </span>
-                <h3 className="font-sans font-bold text-[16px] md:text-[17px] text-brand-navy leading-snug mt-1">
-                  Manufacturer Secures $3.8M Credit Line After Bankability Audit
-                </h3>
-                <p className="text-brand-muted text-[14px] leading-relaxed font-light">
-                  Lender concern centred on management system maturity. EVERSTONE built the evidence package that directly closed the confidence gap.
-                </p>
-                <div className="flex gap-8 mt-3">
-                  <div className="flex flex-col gap-0.5">
-                    <span className="font-serif text-2xl font-bold text-brand-blue">$3.8M</span>
-                    <span className="text-[11px] text-brand-muted uppercase tracking-wider font-light">Credit line secured</span>
-                  </div>
-                  <div className="flex flex-col gap-0.5">
-                    <span className="font-serif text-2xl font-bold text-brand-blue">6 wks</span>
-                    <span className="text-[11px] text-brand-muted uppercase tracking-wider font-light">Audit to approval</span>
-                  </div>
-                </div>
-                <span className="text-[11px] text-brand-muted uppercase tracking-wider font-light mt-2">
-                  Injection Molding · Southeast, USA · Growth Financing
-                </span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 8. INSIGHTS */}
-      <section className="bg-white py-16 md:py-24 px-6 border-b border-slate-100">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
-          {/* Left Column (Span 2) */}
-          <div className="lg:col-span-2 flex flex-col items-start gap-4">
-            <div className="flex flex-col items-start">
-              <span className="text-[11px] font-sans font-bold tracking-[0.25em] text-brand-blue uppercase">
-                Insights
-              </span>
-              <div className="w-12 h-[3px] bg-brand-blue mt-2" />
-            </div>
-
-            <h2 className="font-serif text-3xl md:text-[40px] font-bold text-brand-navy leading-[1.15] mt-4 max-w-sm">
-              Manufacturing intelligence for people who decide.
-            </h2>
-
-            <p className="text-brand-muted text-[14px] leading-relaxed mt-3 font-light max-w-md">
-              Thought leadership at the intersection of factory operations and financial outcomes.
-            </p>
-
-            <button
-              onClick={() => onNavigate('insights')}
-              className="group text-brand-blue hover:text-brand-blue-hover text-[14px] font-bold mt-4 flex items-center gap-2 transition-colors cursor-pointer"
-            >
-              View all insights
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-
-          {/* Right Column (Span 3) */}
-          <div className="lg:col-span-3 flex flex-col divide-y divide-slate-200">
-
-            {/* Insight 01 */}
-            <div className="flex gap-6 items-start py-8 first:pt-0">
-              <span className="font-serif text-[13px] font-bold text-brand-blue uppercase tracking-wider w-12 shrink-0 pt-0.5">
-                ODD
-              </span>
-              <div className="flex flex-col gap-2">
-                <h3 className="font-sans font-bold text-[16px] md:text-[17px] text-brand-navy leading-snug">
-                  Why EBITDA Alone Cannot Tell You If a Factory Is Worth Buying
-                </h3>
-                <p className="text-brand-muted text-[14px] leading-relaxed font-light">
-                  A factory's income statement reflects past results. It says nothing about whether those results can be sustained, scaled, or repeated after ownership changes.
-                </p>
-                <button
-                  onClick={() => onNavigate('insights')}
-                  className="group text-brand-blue hover:text-brand-blue-hover text-[13px] font-semibold mt-1 flex items-center gap-1.5 cursor-pointer w-fit"
-                >
-                  Read article
-                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </button>
-              </div>
-            </div>
-
-            {/* Insight 02 */}
-            <div className="flex gap-6 items-start py-8">
-              <span className="font-serif text-[13px] font-bold text-brand-blue uppercase tracking-wider w-12 shrink-0 pt-0.5">
-                BANK
-              </span>
-              <div className="flex flex-col gap-2">
-                <h3 className="font-sans font-bold text-[16px] md:text-[17px] text-brand-navy leading-snug">
-                  Manufacturing Bankability: The Missing Link Between Operations and Capital
-                </h3>
-                <p className="text-brand-muted text-[14px] leading-relaxed font-light">
-                  The operational systems that produce financial data are rarely examined before capital is committed. That gap is bankability.
-                </p>
-                <button
-                  onClick={() => onNavigate('insights')}
-                  className="group text-brand-blue hover:text-brand-blue-hover text-[13px] font-semibold mt-1 flex items-center gap-1.5 cursor-pointer w-fit"
-                >
-                  Read article
-                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </button>
-              </div>
-            </div>
-
-            {/* Insight 03 */}
-            <div className="flex gap-6 items-start py-8">
-              <span className="font-serif text-[13px] font-bold text-brand-blue uppercase tracking-wider w-12 shrink-0 pt-0.5">
-                Q & F
-              </span>
-              <div className="flex flex-col gap-2">
-                <h3 className="font-sans font-bold text-[16px] md:text-[17px] text-brand-navy leading-snug">
-                  Scrap Is Not a Quality Problem. It Is Margin Leakage.
-                </h3>
-                <p className="text-brand-muted text-[14px] leading-relaxed font-light">
-                  Every unit scrapped is labor, material, and capacity that produced nothing shippable. Here is how to quantify it in EBITDA terms.
-                </p>
-                <button
-                  onClick={() => onNavigate('insights')}
-                  className="group text-brand-blue hover:text-brand-blue-hover text-[13px] font-semibold mt-1 flex items-center gap-1.5 cursor-pointer w-fit"
-                >
-                  Read article
-                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+      </div>
+    </section>
 
       {/* 9. CTA SECTION */}
       <section className=" relative py-20 md:py-28 px-6 overflow-hidden">
