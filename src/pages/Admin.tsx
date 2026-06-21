@@ -67,7 +67,7 @@ export default function Admin() {
     category: 'OPERATIONS',
     title: '',
     desc: '',
-    link: '#/contact',
+    link: "https://yourdomain.com/insights/",
     isTop: false
   })
 
