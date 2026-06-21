@@ -39,7 +39,7 @@ export default function Service() {
             </p>
             <div className="mt-4">
               <a
-                href="#/contact"
+                href="/contact"
                 className="bg-[#031f3b] hover:bg-[#0d2035] text-white text-[13px] font-semibold px-5 py-4 rounded-none transition-colors tracking-wider  inline-block shadow-sm"
               >
                 Request This Assessment
@@ -192,7 +192,7 @@ export default function Service() {
             </p>
             <div className="mt-4">
               <a
-                href="#/contact"
+                href="/contact"
                 className="bg-[#041c35] hover:bg-[#0d2035] text-white text-[13px] font-semibold px-5 py-4 rounded-none transition-colors tracking-wider uppercase inline-block shadow-sm"
               >
                 Request This Audit
@@ -279,7 +279,7 @@ export default function Service() {
             </p>
             <div className="mt-4">
               <a
-                href="#/contact"
+                href="/contact"
                 className="bg-[#020e1a] hover:bg-[#0d2035] text-white text-[13px] font-semibold px-8 py-4 rounded-none transition-colors tracking-wider uppercase inline-block shadow-sm"
               >
                 Request This Program

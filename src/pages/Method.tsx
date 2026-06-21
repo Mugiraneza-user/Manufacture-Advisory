@@ -171,9 +171,11 @@ export default function Method() {
                   </div>
                 ))}
               </div>
-              <button className="mt-6 w-full bg-[#1a5eb8] hover:bg-[#1650a0] text-white text-[13px] font-semibold py-4 transition-colors tracking-wide">
-                Start a Conversation
-              </button>
+              <a href="/contact">
+                <button className="mt-6 w-full bg-[#1a5eb8] hover:bg-[#1650a0] text-white text-[13px] font-semibold py-4 transition-colors tracking-wide">
+                  Start a Conversation
+                </button>
+              </a>
             </div>
           </div>
         </div>
@@ -190,12 +192,17 @@ export default function Method() {
             what you need to know  and by when.
           </p>
           <div className="flex flex-wrap gap-4 justify-center mt-2">
-            <button className="bg-white text-[#1a5eb8] hover:bg-blue-50 font-semibold px-8 py-4 text-[14px] tracking-wide transition-colors">
-              Request ODD
-            </button>
-            <button className="border border-white text-white hover:bg-white/10 font-semibold px-8 py-4 text-[14px] tracking-wide transition-colors">
-              View Services
-            </button>
+            <a href="/contact">
+              <button className="bg-white text-[#1a5eb8] hover:bg-blue-50 font-semibold px-8 py-4 text-[14px] tracking-wide transition-colors">
+                Request ODD
+              </button>
+            </a>
+
+            <a href="/services">
+              <button className="border border-white text-white hover:bg-white/10 font-semibold px-8 py-4 text-[14px] tracking-wide transition-colors">
+                View Services
+              </button>
+            </a>
           </div>
         </div>
       </section>

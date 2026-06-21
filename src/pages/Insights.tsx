@@ -4,22 +4,13 @@ import type { Insight } from '../utils/storage'
 
 export default function Insights() {
   const [insights, setInsights] = useState<Insight[]>([])
-  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     getInsights()
       .then(data => setInsights(data))
       .catch(err => console.error('Failed to load insights:', err))
-      .finally(() => setLoading(false))
-  }, [])
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50">
-        <div className="text-slate-400 text-sm font-light animate-pulse">Loading insights...</div>
-      </div>
-    )
-  }
+  }, [])
 
   const topCards = insights.filter(i => i.isTop)
   const bottomCards = insights.filter(i => !i.isTop)
@@ -52,6 +43,19 @@ export default function Insights() {
         </div>
       </section>
 
+      {insights.length === 0 ? (
+        <section className="min-h-140 flex items-center justify-center bg-slate-50">
+          <div className="text-center">
+            <h2 className="text-slate-700 text-xl font-semibold mb-2">
+              No insights available yet
+            </h2>
+            <p className="text-slate-400 text-sm font-light">
+              Insights will be displayed here soon. Please check back later.
+            </p>
+          </div>
+        </section>
+      ) : (
+        <>
       {/* ── CARDS SECTION ── */}
       <section className="bg-white py-20 px-6">
         <div className="max-w-7xl mx-auto">
@@ -134,6 +138,9 @@ export default function Insights() {
           </a>
         </div>
       </section>
+        </>
+        )}
+        
     </div>
   )
 }

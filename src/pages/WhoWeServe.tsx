@@ -98,7 +98,7 @@ export default function WhoWeServe() {
             Built for the people<br />capital depends on.
           </h1>
           <p className="text-slate-300 text-base md:text-lg max-w-2xl font-light leading-relaxed">
-            EVERSTONE works across the manufacturing capital stack with owners, operators,
+            EVERSTONE SYSTEMS works across the manufacturing capital stack with owners, operators,
             acquirers, and lenders who need factory intelligence that holds up under scrutiny.
           </p>
         </div>
@@ -142,9 +142,11 @@ export default function WhoWeServe() {
                 </p>
               ))}
               <div className="mt-2">
-                <button className="bg-[#020e1a] hover:bg-[#0d2035] text-white text-[13px] font-semibold px-6 py-4 transition-colors tracking-wide">
-                  {seg.cta}
-                </button>
+                <a href="/contact">
+                  <button className="bg-[#020e1a] hover:bg-[#0d2035] text-white text-[13px] font-semibold px-6 py-4 transition-colors tracking-wide">
+                    {seg.cta}
+                  </button>
+                </a>
               </div>
             </div>
 
@@ -177,9 +179,12 @@ export default function WhoWeServe() {
             Whether you're a manufacturer, investor, or lender every engagement
             starts with a direct, confidential conversation.
           </p>
-          <button className="bg-white text-[#1a5eb8] hover:bg-blue-50 font-semibold px-10 py-4 text-[14px] tracking-wide transition-colors mt-2">
-            Request ODD
-          </button>
+
+          <a href="/contact">
+            <button className="bg-white text-[#1a5eb8] hover:bg-blue-50 font-semibold px-10 py-4 text-[14px] tracking-wide transition-colors mt-2">
+              Request ODD
+            </button>
+          </a>
         </div>
       </section>
 

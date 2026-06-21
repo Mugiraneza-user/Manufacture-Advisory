@@ -21,7 +21,7 @@ export default function Home({ onNavigate }: HomeProps) {
             Manufacturing Value Assurance
           </span>
           <h1 className="text-white text-3xl md:text-5xl lg:text-[54px] font-serif font-bold leading-[1.12] max-w-3xl mt-2 ">
-            The factory is  <br />where financial  <br /> risk  <br /> <span className="text-brand-blue-hover">hides.</span>
+            The factory is  <br />where financial  <br /> risk  <br /> <span className="text-[#1688E8]">hides.</span>
           </h1>
           
           <p className="text-slate-300 font-sans text-base md:text-lg lg:text-[17px] leading-relaxed max-w-2xl mt-2 font-normal">

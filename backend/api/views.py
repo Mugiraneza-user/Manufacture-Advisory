@@ -43,13 +43,13 @@ class LoginView(APIView):
 class CaseStudyViewSet(viewsets.ModelViewSet):
     queryset = CaseStudy.objects.all().order_by('-created_at')
     serializer_class = CaseStudySerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.AllowAny]
 
 
 class InsightViewSet(viewsets.ModelViewSet):
     queryset = Insight.objects.all().order_by('-created_at')
     serializer_class = InsightSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.AllowAny]
 
 
 class MessageViewSet(viewsets.ModelViewSet):

@@ -468,9 +468,7 @@ export default function Admin() {
               {authLoading ? 'Authenticating...' : 'Sign In'}
             </button>
 
-            <p className="text-[11px] text-center text-slate-400 font-light mt-2">
-              Use your Django admin credentials to access this portal.
-            </p>
+          
           </form>
         </div>
       </div>
@@ -499,9 +497,7 @@ export default function Admin() {
                   Everstone Systems Portal
                 </h2>
               </div>
-              <p className="text-xs text-slate-400 font-light mt-0.5">
-                Logged in as Administrator · Simulated Local Environment
-              </p>
+             
             </div>
 
             <div className="flex items-center gap-3">
@@ -512,7 +508,7 @@ export default function Admin() {
                 Lock Panel
               </button>
               <a
-                href="#/home"
+                href="/home"
                 className="bg-[#0e5db3] hover:bg-[#0b4a91] text-white text-xs font-semibold px-4 py-2 transition-colors cursor-pointer"
               >
                 View Site

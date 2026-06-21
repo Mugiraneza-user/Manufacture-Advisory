@@ -5,7 +5,7 @@ import type { CaseStudy } from '../utils/storage'
 export default function CaseStudies() {
   const [activeTab, setActiveTab] = useState('All')
   const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([])
-  const [loading, setLoading] = useState(true)
+ 
 
   const filterTabs = [
     { label: 'All Engagements', value: 'All' },
@@ -19,16 +19,10 @@ export default function CaseStudies() {
     getCaseStudies()
       .then(data => setCaseStudies(data))
       .catch(err => console.error('Failed to load case studies:', err))
-      .finally(() => setLoading(false))
+      
   }, [])
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50">
-        <div className="text-slate-400 text-sm font-light animate-pulse">Loading case studies...</div>
-      </div>
-    )
-  }
+  
 
   // Find spotlight featured (or fallback to the first one)
   const spotlightFeatured = caseStudies.find(c => c.isFeatured) || caseStudies[0]
@@ -277,7 +271,7 @@ export default function CaseStudies() {
             Start with a confidential conversation about what you're evaluating, protecting, or preparing for.
           </p>
           <a
-            href="#/contact"
+            href="/contact"
             className="bg-white hover:bg-slate-50 text-[#020e1a] text-[13px] font-bold px-8 py-4 rounded-none transition-all duration-200 tracking-wider uppercase inline-block shadow-sm"
           >
             Request ODD
