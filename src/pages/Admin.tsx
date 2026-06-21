@@ -290,7 +290,7 @@ export default function Admin() {
       metadata: '',
       desc: '',
       metrics: [{ value: '', label: '' }],
-      link: '#/contact',
+      link: "/https://yourdomain.com/insights/",
       isFeatured: false,
       isSide: false
     })
@@ -305,7 +305,7 @@ export default function Admin() {
       metadata: study.metadata || '',
       desc: study.desc,
       metrics: study.metrics.length > 0 ? study.metrics.map(m => ({ ...m })) : [{ value: '', label: '' }],
-      link: study.link || '#/contact',
+      link: study.link || "/https://yourdomain.com/insights/",
       isFeatured: !!study.isFeatured,
       isSide: !!study.isSide
     })
@@ -362,7 +362,7 @@ export default function Admin() {
       category: 'OPERATIONS',
       title: '',
       desc: '',
-      link: '#/contact',
+      link: "/https://yourdomain.com/insights/",
       isTop: false
     })
     setIsInsightModalOpen(true)
@@ -374,7 +374,7 @@ export default function Admin() {
       category: insight.category,
       title: insight.title,
       desc: insight.desc,
-      link: insight.link || '#/contact',
+      link: insight.link || "/https://yourdomain.com/insights/",
       isTop: insight.isTop
     })
     setIsInsightModalOpen(true)
