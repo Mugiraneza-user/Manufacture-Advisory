@@ -157,7 +157,7 @@ export default function CaseStudies() {
                   </div>
                   
                   <a 
-                    href={spotlightFeatured.link}
+                    href="/contact"
                     className="text-[13px] font-semibold text-[#4a9eff] hover:text-white transition-colors inline-flex items-center gap-1.5 uppercase tracking-wider"
                   >
                     Discuss this mandate <span className="text-base">→</span>
@@ -199,7 +199,7 @@ export default function CaseStudies() {
                       </div>
                       
                       <a 
-                        href={sideCard.link}
+                        href="/contact"
                         className="text-[13px] font-semibold text-[#1a5eb8] hover:text-[#0c3c7d] transition-colors inline-flex items-center gap-1.5 uppercase tracking-wider"
                       >
                         Discuss this mandate <span className="text-base">→</span>
@@ -242,7 +242,7 @@ export default function CaseStudies() {
                   </div>
                   
                   <a 
-                    href={card.link}
+                    href="/contact"
                     className="text-[13px] font-semibold text-[#1a5eb8] hover:text-[#0c3c7d] transition-colors inline-flex items-center gap-1.5 uppercase tracking-wider"
                   >
                     Discuss this mandate <span className="text-base">→</span>

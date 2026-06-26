@@ -175,20 +175,6 @@ export default function Admin() {
     });
   };
 
-  // Message Handlers
-  // const handleDeleteMessage = async (id: string) => {
-  //   if (window.confirm('Are you sure you want to delete this message? This action cannot be undone.')) {
-  //     try {
-  //       await deleteMessage(id)
-  //       await loadData()
-  //       if (selectedMessage?.id === id) {
-  //         setSelectedMessage(null)
-  //       }
-  //     } catch (err) {
-  //       console.error('Failed to delete message:', err)
-  //     }
-  //   }
-  // }
 
   const handleToggleMessageRead = async (id: string, currentRead: boolean) => {
     try {
@@ -356,6 +342,7 @@ export default function Admin() {
     }
   }
 
+
   const handleOpenAddInsight = () => {
     setEditingInsight(null)
     setInsightFormData({
@@ -380,7 +367,7 @@ export default function Admin() {
     setIsInsightModalOpen(true)
   }
 
-  const handleDeleteInsight = async (id: string) => {
+  const handleDeleteInsight = async (id: number) => {
     openConfirm({
       title: "Delete Insight",
       message: "Are you sure you want to delete this insight?",

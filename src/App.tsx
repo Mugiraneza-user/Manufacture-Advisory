@@ -12,6 +12,7 @@ import Insights from './pages/Insights'
 import Contact from './pages/Contact'
 import About from './pages/About'
 import Admin from './pages/Admin'
+import InsightDetail from './pages/InsightDetail'
 
 function App() {
   // Get current route from URL path
@@ -48,6 +49,12 @@ function App() {
     setRoute(to)
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })
   }
+  const path = window.location.pathname
+
+
+if (path.startsWith("/insights/")) {
+  return <InsightDetail />
+}
 
   // Render pages
   const renderContent = () => {
@@ -64,6 +71,7 @@ function App() {
         return <CaseStudies />
       case 'insights':
         return <Insights />
+         
       case 'contact':
         return <Contact />
       case 'about':

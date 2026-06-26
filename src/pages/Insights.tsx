@@ -15,18 +15,9 @@ export default function Insights() {
       })
   }, [])
 
-    // loading state
-  if (insights === null) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50">
-        <div className="text-slate-400 text-sm animate-pulse">
-          Loading insights...
-        </div>
-      </div>
-    )
-  }
-   const topCards = insights.filter(i => i.isTop) 
-   const bottomCards = insights.filter(i => !i.isTop) 
+    
+   const topCards = insights?.filter(i => i.isTop) 
+   const bottomCards = insights?.filter(i => !i.isTop) 
 
  
 
@@ -59,7 +50,7 @@ export default function Insights() {
         </div>
       </section>
 
-      {insights.length === 0 ? (
+      {insights?.length === 0 ? (
         <section className="min-h-140 flex items-center justify-center bg-slate-50">
           <div className="text-center">
             <h2 className="text-slate-700 text-xl font-semibold mb-2">
@@ -77,7 +68,7 @@ export default function Insights() {
         <div className="max-w-7xl mx-auto">
           {/* Top Row: Two Dark Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            {topCards.map((card, idx) => (
+            {topCards?.map((card, idx) => (
               <div 
                 key={idx} 
                 className="bg-[#020e1a] text-white p-10 md:p-12 flex flex-col justify-between hover:translate-y-[-2px] transition-all duration-300 shadow-lg"
@@ -93,9 +84,9 @@ export default function Insights() {
                     {card.desc}
                   </p>
                 </div>
-                <a 
-                  href={card.link}
-                  className="text-[13px] font-semibold text-[#4a9eff] hover:text-white transition-colors inline-flex items-center gap-1.5 uppercase tracking-wider"
+                 <a
+                  href={`/insights/${card.id}`}
+                  className="text-[13px] font-semibold text-[#1a5eb8] hover:text-[#0c3c7d] transition-colors inline-flex items-center gap-1.5 uppercase tracking-wider mt-auto"
                 >
                   Read article <span className="text-base">→</span>
                 </a>
@@ -105,7 +96,7 @@ export default function Insights() {
 
           {/* Bottom Row: Three White Cards with vertical dividers */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 border-t border-slate-200">
-            {bottomCards.map((card, idx) => (
+            {bottomCards?.map((card, idx) => (
               <div 
                 key={idx} 
                 className={`py-12 px-8 flex flex-col justify-between ${
@@ -125,9 +116,9 @@ export default function Insights() {
                     {card.desc}
                   </p>
                 </div>
-                <a 
-                  href={card.link}
-                  className="text-[13px] font-semibold text-[#1a5eb8] hover:text-[#0c3c7d] transition-colors inline-flex items-center gap-1.5 uppercase tracking-wider mt-auto"
+              <a
+                  href={`/insights/${card.id}`}
+                  className="text-[13px] font-semibold text-[#4a9eff] hover:text-amber-700 transition-colors inline-flex items-center gap-1.5 uppercase tracking-wider"
                 >
                   Read article <span className="text-base">→</span>
                 </a>
@@ -147,7 +138,7 @@ export default function Insights() {
             Every engagement starts with a direct conversation no pitch deck, no sales cycle.
           </p>
           <a
-            href="#/contact"
+            href="/contact"
             className="bg-white hover:bg-slate-50 text-[#020e1a] text-[13px] font-bold px-8 py-4 rounded-none transition-all duration-200 tracking-wider uppercase inline-block shadow-sm"
           >
             Request ODD
@@ -160,4 +151,3 @@ export default function Insights() {
     </div>
   )
 }
-
